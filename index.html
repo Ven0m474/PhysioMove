@@ -7,23 +7,41 @@
     <title>PhysioMove</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="gallery.css">
+    <script src="js/scroll.js" defer></script>
 </head>
 <body>
     <nav>
         <a href="index.html">
             <img src="img/PM_logo.png" alt="PhysioMove logo">
         </a>
-        <a href="#text">O nas</a>
-        <a href="gallery.html">Galeria</a>
+        <div>
+            <a href="#text">O nas</a>
+            <a href="gallery.html">Galeria</a>
+            <a href="#form">
+                <button class="primary">
+                    Umów wizytę
+                </button>
+            </a>
+        </div>
     </nav>
     <div id="top"></div>
     <header>
         <div class="shape" style="background-color: var(--tiffany-blue); top: 4em; left: 2em;"></div>
         <img src="img/banner.jpg" alt="Physio">
         <div class="shape" style="background-color: var(--cerulean); top: 32em; left: 34em"></div>
-        <h1>profesionalna opieka<br> w naszych rękach</h1>
-        <div class="space-maker"></div>
+        <h1>Twoje zdrowie jest<br>niezwykle istotne</h1>
+        <div class="text-space">
+            <p>
+                Nieważne czy uprawiasz sport zawodowo czy ruszasz się dla rozrywki. Umów z nami wizytę by zadbać o swoje zdrowie.
+            </p>
+            <a href="#form">
+                <button class="primary">
+                    Umów wizytę
+                </button>
+            </a>
+        </div>
     </header>
+    <div class="space-maker"></div>
     <main>
         <section id="text">
             <h2>Profesionalna opieka</h2>
@@ -49,7 +67,13 @@
                 <img src="img/gallery10.jpg" alt="gallery10">
             </div>
         </section>
-        <section id="form"></section>
+        <section id="form">
+            <h2>Umów wizytę</h2>
+            <form>
+                <label for="problem">Opisz swój problem:</label><br>
+                <textarea name="problem" id="problem"></textarea>
+            </form>
+        </section>
     </main>
     <footer>
         <img src="img/PM_logo_white.png" alt="PhysioMove logo">

@@ -1,8 +1,10 @@
 .gallery img{
-    height: 300px;
+    height: 20em;
+    border-radius: 1em;
 }
 .gallery{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1em;
 }
