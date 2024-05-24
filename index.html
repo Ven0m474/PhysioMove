@@ -6,24 +6,84 @@
     <meta name="author" content="Bartosz Tomasik & Bartłomiej Ogiegło">
     <title>PhysioMove</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
-    <nav></nav>
+    <nav>
+        <a href="index.html">
+            <img src="img/PM_logo.png" alt="PhysioMove logo">
+        </a>
+        <a href="#text">O nas</a>
+        <a href="gallery.html">Galeria</a>
+    </nav>
+    <div id="top"></div>
     <header>
         <div class="shape" style="background-color: var(--tiffany-blue); top: 4em; left: 2em;"></div>
         <img src="img/banner.jpg" alt="Physio">
-        <div class="shape" style="background-color: var(--cerulean); top: 32em; left: 42em"></div>
+        <div class="shape" style="background-color: var(--cerulean); top: 32em; left: 34em"></div>
         <h1>profesionalna opieka<br> w naszych rękach</h1>
-        <div></div>
+        <div class="space-maker"></div>
     </header>
     <main>
-        <section id="txt">
-        <h2>Profesionalna opieka</h2>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, veritatis! In nostrum dolor voluptatibus, amet, id ex corrupti adipisci est ipsam debitis deserunt optio distinctio atque iusto eligendi nulla vero!
+        <section id="text">
+            <h2>Profesionalna opieka</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, veritatis! In nostrum dolor voluptatibus, amet, id ex corrupti adipisci est ipsam debitis deserunt optio distinctio atque iusto eligendi nulla vero!</p>
         </section>
-        <section id="gallery"></section>
+        <section id="slider">
+            <button><</button>
+            <img id="sliderImg" src="img/gallery1.jpg" alt="Slider gallery image">
+            <button>></button>
+            <script src="js/slider.js" defer></script>
+        </section>
+        <section id="gallery">
+            <div class="gallery">
+                <img src="img/gallery1.jpg" alt="gallery1">
+                <img src="img/gallery2.jpg" alt="gallery2">
+                <img src="img/gallery3.jpg" alt="gallery3">
+                <img src="img/gallery4.jpg" alt="gallery4">
+                <img src="img/gallery5.jpg" alt="gallery5">
+                <img src="img/gallery6.jpg" alt="gallery6">
+                <img src="img/gallery7.jpg" alt="gallery7">
+                <img src="img/gallery8.jpg" alt="gallery8">
+                <img src="img/gallery9.jpg" alt="gallery9">
+                <img src="img/gallery10.jpg" alt="gallery10">
+            </div>
+        </section>
         <section id="form"></section>
     </main>
-    <footer></footer>
+    <footer>
+        <img src="img/PM_logo_white.png" alt="PhysioMove logo">
+        <div class="clock" id="clock"></div>
+        <div class="countdown" id="countdown"></div>
+        <script>
+            function updateClock() {
+            const now = new Date();
+            const clockElement = document.getElementById('clock');
+            const countdownElement = document.getElementById('countdown');
+            const dateString = now.toLocaleDateString('pl-PL', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            clockElement.textContent = dateString;
+            const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59);
+            const timeRemaining = endOfYear - now;
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            countdownElement.textContent = `Czas do końca roku: ${days} dni, ${hours} godzin, ${minutes} minut, ${seconds} sekund`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+        </script>
+        <p>&copy; 2024 Bartosz Tomasik & Bartłomiej Ogiegło</p>
+    </footer>
 </body>
 </html>

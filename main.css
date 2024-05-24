@@ -16,6 +16,29 @@ body {
     color: var(--gunmetal);
 }
 
+nav {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px);
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    font-size: 18pt;
+}
+nav img {
+    height: 4em;
+}
+nav a {
+    text-decoration: none;
+    color: var(--gunmetal);
+}
+
 header div.shape {
     width: 12em;
     height: 24em;
@@ -36,4 +59,41 @@ header h1 {
     top: 10rem;
     font-size: 60pt;
     text-transform: uppercase;
+}
+
+header .space-maker {
+    height: 64em;
+}
+
+section h2 {
+    font-size: 38pt;
+}
+section p {
+    font-size: 16pt;
+}
+
+section#text {
+    text-align: center;
+    width: clamp(200px, 60%, 1200px);
+    margin: 0 auto;
+}
+
+section#slider {
+    height: 48rem;
+    display: flex;
+}
+section#slider img {
+    width: 100%;
+}
+
+footer{
+    background-color: var(--gunmetal);
+    color: white;
+    text-align: center;
+    height: 14em;
+    padding-top: 3em;
+}
+
+footer img {
+    width: 20em;
 }
