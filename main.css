@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 :root {
-    --platinum: #ccdbdcff;
+    --platinum: rgb(230, 234, 235);
     --gunmetal: #272d2dff;
     --tiffany-blue: #63c7b2ff;
     --cerulean: #0081a7ff;
@@ -9,6 +9,10 @@
 
     scroll-behavior: smooth;
 }
+
+.tiffany-blue {color: var(--tiffany-blue);}
+.cerulean {color: var(--cerulean);}
+.move-up {display: inline-block; transform: translateY(calc(-10px + calc(var(--scroll-y-px) * 0.15))); text-shadow: rgba(0, 0, 0, 0.25) 0 10px 20px;}
 
 body {
     /* background-color: var(--platinum); */
@@ -19,6 +23,11 @@ body {
 
     /** Remove if causes issues */
     overflow-x: hidden;
+}
+
+section.center {
+    width: clamp(200px, 60%, 1200px);
+    margin: 0 auto;
 }
 
 button {
@@ -97,12 +106,14 @@ header {
 header div.shape {
     width: 12em;
     height: 24em;
+    transform: translateY(calc(var(--scroll-y-px) * 0.5));
 }
 header img {
     width: 28em;
     left: 10em;
-    top: 8em;
+    top: 10em;
     z-index: -1;
+    transform: translateY(calc(var(--scroll-y-px) * 0.25));
 }
 header div.shape, header img, header h1, header .text-space {
     border-radius: 1em;
@@ -130,6 +141,7 @@ header .text-space {
 /*! GENERIC SECTION*/
 section {
     text-align: center;
+    margin-bottom: 8em 0;
 }
 section h2 {
     font-size: 38pt;
@@ -140,8 +152,6 @@ section p {
 
 /*! TEXT SECTION*/
 section#text {
-    width: clamp(200px, 60%, 1200px);
-    margin: 0 auto;
     transform: translateY(max(calc(var(--scroll-y-px) + 200px), -100px));
 }
 
@@ -150,13 +160,104 @@ section#slider {
     height: 48rem;
     display: flex;
     justify-content: center;
+    gap: 2em;
+    margin-bottom: 8em;
 }
 section#slider img {
     /* width: 100%; */
+    border-radius: 1em;
+}
+section#slider button {
+    height: 4em;
+    width: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin: auto 0;
+    opacity: 0;
+    color: var(--gunmetal);
+    background-color: var(--platinum) !important;
+    overflow: hidden;
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0 10px 25px 0;
+    /* border: 2em rgba(0, 0, 0, 0) solid */
+}
+section#slider button span {
+    font-size: 40pt;
+    display: block;
+    transform: translateY(-4px);
+}
+section#slider button:has(+ img:hover), section#slider button:hover:has(+ img) {
+    background-color: var(--blue-crayola);
+    transform: translateX(90px);
+    opacity: 1;
+}
+section#slider img:hover + button, section#slider button:hover {
+    background-color: var(--blue-crayola);
+    transform: translateX(-90px);
+    opacity: 1;
+}
+section#slider button:hover {
+    scale: 1.1;
+}
+
+/*! GALLERY SECTION*/
+section#gallery:hover img {
+    transform: scale(0.99);
+}
+.gallery img{
+    box-shadow: rgba(0, 0, 0, 0.25) 0 10px 25px 0;
+    height: 20em;
+    border-radius: 1em;
+    transition: ease-in-out 0.2s;
+}
+.gallery img:hover {
+    transform: scale(1.05) translateY(-8px) !important;
+    z-index: 200;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+/*! FORM SECTION*/
+section#form {
+}
+section#form .container {
+    /* outline: red 1px solid; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0 10px 20px 0;
+    border-radius: 1em;
+    padding: 2em;
+}
+form label {
+    font-size: 22pt;
+    font-weight: bold;
+}
+form textarea {
+    resize: none;
+    width: 100% !important;
+    height: 200% !important;
+    border: none;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0;
+    font-size: 16pt;
+    padding: 0.5em;
+    font-family: "Ubuntu", "Roboto", sans-serif;
+    margin: 1em 0;
+    box-sizing: border-box;
+}
+.button-spacer {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
 }
 
 /*! FOOTER*/
 footer{
+    margin-top: 6em;
     background-color: var(--gunmetal);
     color: white;
     text-align: center;

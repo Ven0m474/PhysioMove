@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +11,12 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">
+        <a href="#top">
             <img src="img/PM_logo.png" alt="PhysioMove logo">
         </a>
         <div>
             <a href="#text">O nas</a>
-            <a href="gallery.html">Galeria</a>
+            <a href="#gallery">Galeria</a>
             <a href="#form">
                 <button class="primary">
                     Umów wizytę
@@ -26,10 +26,10 @@
     </nav>
     <div id="top"></div>
     <header>
-        <div class="shape" style="background-color: var(--tiffany-blue); top: 4em; left: 2em;"></div>
+        <div class="shape" style="background-color: var(--tiffany-blue); top: 6em; left: 2em;"></div>
         <img src="img/banner.jpg" alt="Physio">
         <div class="shape" style="background-color: var(--cerulean); top: 32em; left: 34em"></div>
-        <h1>Twoje zdrowie jest<br>niezwykle istotne</h1>
+        <h1>Twoje <span class="tiffany-blue move-up">zdrowie</span> jest<br>niezwykle <span class="cerulean move-up">istotne</span></h1>
         <div class="text-space">
             <p>
                 Nieważne czy uprawiasz sport zawodowo czy ruszasz się dla rozrywki. Umów z nami wizytę by zadbać o swoje zdrowie.
@@ -43,14 +43,14 @@
     </header>
     <div class="space-maker"></div>
     <main>
-        <section id="text">
+        <section id="text" class="center">
             <h2>Profesionalna opieka</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, veritatis! In nostrum dolor voluptatibus, amet, id ex corrupti adipisci est ipsam debitis deserunt optio distinctio atque iusto eligendi nulla vero!</p>
         </section>
         <section id="slider">
-            <button><</button>
+            <button><span><</span></button>
             <img id="sliderImg" src="img/gallery1.jpg" alt="Slider gallery image">
-            <button>></button>
+            <button><span>></span></button>
             <script src="js/slider.js" defer></script>
         </section>
         <section id="gallery">
@@ -67,46 +67,27 @@
                 <img src="img/gallery10.jpg" alt="gallery10">
             </div>
         </section>
-        <section id="form">
+        <section id="form" class="center">
             <h2>Umów wizytę</h2>
-            <form>
-                <label for="problem">Opisz swój problem:</label><br>
-                <textarea name="problem" id="problem"></textarea>
-            </form>
+            <p>Skorzystaj z naszej najnowocześniejszej technologi zasilanej przez AI. <!--That's not true, it's just a school project lmao--> Po prostu opisz nam swój problem, a nasz system znajdzie perfekcyjnego specialistę, dobranego do twoich potrzeb!</p>
+            <div class="container">
+                <form>
+                    <label for="problem">Opisz swoje dolegliwości:</label><br>
+                    <textarea name="problem" id="problem"></textarea>
+                    <div class="button-spacer"><button type="button" class="primary" id="send">Wyślij</button><button type="reset">Wyczyść</button></div>
+                </form>
+                <div id="cardList">
+
+                </div>
+            </div>
+            <script src="js/findThem.js" defer></script>
         </section>
     </main>
     <footer>
         <img src="img/PM_logo_white.png" alt="PhysioMove logo">
         <div class="clock" id="clock"></div>
         <div class="countdown" id="countdown"></div>
-        <script>
-            function updateClock() {
-            const now = new Date();
-            const clockElement = document.getElementById('clock');
-            const countdownElement = document.getElementById('countdown');
-            const dateString = now.toLocaleDateString('pl-PL', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                weekday: 'long',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-            clockElement.textContent = dateString;
-            const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59);
-            const timeRemaining = endOfYear - now;
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            countdownElement.textContent = `Czas do końca roku: ${days} dni, ${hours} godzin, ${minutes} minut, ${seconds} sekund`;
-        }
-
-        setInterval(updateClock, 1000);
-        updateClock();
-        </script>
+        <script src="js/clock.js"></script>
         <p>&copy; 2024 Bartosz Tomasik & Bartłomiej Ogiegło</p>
     </footer>
 </body>
