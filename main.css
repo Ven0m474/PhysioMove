@@ -254,6 +254,13 @@ form textarea {
     justify-content: center;
     gap: 2em;
 }
+#cardList > div {
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px 0; */
+    padding: 1em;
+    margin-top: 1em;
+    /* border-radius: 1em; */
+    border-bottom: var(--platinum) 1px solid;
+}
 
 /*! FOOTER*/
 footer{
