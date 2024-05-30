@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="gallery.css">
     <script src="js/scroll.js" defer></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav>
@@ -66,15 +67,20 @@
                 <img src="img/gallery9.jpg" alt="gallery9">
                 <img src="img/gallery10.jpg" alt="gallery10">
             </div>
+            <div class="gallery-expander">
+                <button id="expand">Pokaż więcej</button>
+            </div>
+            <script src="js/gallery.js" defer></script>
         </section>
         <section id="form" class="center">
             <h2>Umów wizytę</h2>
-            <p>Skorzystaj z naszej najnowocześniejszej technologi zasilanej przez AI. <!--That's not true, it's just a school project lmao--> Po prostu opisz nam swój problem, a nasz system znajdzie perfekcyjnego specialistę, dobranego do twoich potrzeb!</p>
+            <!-- <br><br><br> -->
             <div class="container">
+                <p>Skorzystaj z naszej najnowocześniejszej technologi zasilanej przez AI. <!--That's not true, it's just a school project lmao--> Po prostu opisz nam swój problem, a nasz system znajdzie perfekcyjnego specialistę, dobranego do twoich potrzeb!</p>
                 <form>
                     <label for="problem">Opisz swoje dolegliwości:</label><br>
                     <textarea name="problem" id="problem"></textarea>
-                    <div class="button-spacer"><button type="button" class="primary" id="send">Wyślij</button><button type="reset">Wyczyść</button></div>
+                    <div class="button-spacer"><button type="button" class="primary" id="send">Szukaj</button><button type="reset">Wyczyść</button></div>
                 </form>
                 <div id="cardList">
 
