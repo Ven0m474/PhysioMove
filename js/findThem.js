@@ -32,8 +32,38 @@ function addCard(card) {
     price.appendChild(priceTx)
     el.appendChild(price)
 
+    let btn = document.createElement("button")
+    let btnTx = document.createTextNode("Wybierz")
+    btn.appendChild(btnTx)
+    el.appendChild(btn)
+    btn.addEventListener("click", () => {showPopup(card)})
+
     cardList.appendChild(el)
 }
+
+let curCard = null
+function showPopup(card) {
+    curCard = card
+    document.querySelector("#popup-container").style.visibility = "visible"
+    document.querySelector("#popup h3").textContent = card.title
+    updatePrice()
+}
+document.querySelector("#popup-close").addEventListener("click", () => {
+    document.querySelector("#popup-container").style.visibility = "hidden"
+})
+document.querySelector("#popup-container").addEventListener("click", (e) => {e.currentTarget.style.visibility = "hidden"})
+document.querySelector("#popup").addEventListener("click", (e) => e.stopPropagation())
+function updatePrice() {
+    let discount = document.querySelector("#znizka").value
+    let date = document.querySelector("#data").value
+    date = new Intl.DateTimeFormat("pl", {
+        "weekday": "short"
+    }).format(new Date(date))
+    let weekend = date == "sob." || date == "niedz."
+    document.querySelector("#popup p>span").textContent = `${parseFloat(curCard.price - curCard.price * (discount/100) + (14*weekend)).toFixed(2)}zł`
+}
+document.querySelector("#znizka").addEventListener("change", updatePrice)
+document.querySelector("#data").addEventListener("change", updatePrice)
 
 function clear() {
     cardList.innerHTML = ""

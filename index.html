@@ -27,9 +27,9 @@
     </nav>
     <div id="top"></div>
     <header>
-        <div class="shape" style="background-color: var(--tiffany-blue); top: 6em; left: 2em;"></div>
+        <div class="shape s1" style="background-color: var(--tiffany-blue);"></div>
         <img src="img/banner.jpg" alt="Physio">
-        <div class="shape" style="background-color: var(--cerulean); top: 32em; left: 34em"></div>
+        <div class="shape s2" style="background-color: var(--cerulean);"></div>
         <h1>Twoje <span class="tiffany-blue move-up">zdrowie</span> jest<br>niezwykle <span class="cerulean move-up">istotne</span></h1>
         <div class="text-space">
             <p>
@@ -46,10 +46,10 @@
     <main>
         <section id="text" class="center">
             <h2>Profesionalna opieka</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, veritatis! In nostrum dolor voluptatibus, amet, id ex corrupti adipisci est ipsam debitis deserunt optio distinctio atque iusto eligendi nulla vero!</p>
+            <p>Twoje zdrowie jest naszym priorytetem. Dzięki naszemu doświadczeniu i zaangażowaniu, zapewniamy najlepszą możliwą opiekę medyczną. Nasi specjaliści są gotowi, aby wspierać Cię na każdym kroku, dbając o Twoje potrzeby zdrowotne w sposób kompleksowy i profesjonalny.</p>
         </section>
         <section id="slider">
-            <button><span><</span></button>
+            <button><span>&lt;</span></button>
             <img id="sliderImg" src="img/gallery1.jpg" alt="Slider gallery image">
             <button><span>></span></button>
             <script src="js/slider.js" defer></script>
@@ -96,5 +96,28 @@
         <script src="js/clock.js"></script>
         <p>&copy; 2024 Bartosz Tomasik & Bartłomiej Ogiegło</p>
     </footer>
+    <div id="popup-container" style="visibility: hidden;">
+        <div id="popup">
+            <div id="popup-close">x</div>
+            <h1>Omów wizytę</h1>
+            <h3>Wizyta</h3>
+                <form>
+                    <label for="data">Data:</label><br>
+                    <input type="date" name="data" id="data"><br><br>
+                    <label for="znizka">Zniżka</label><br>
+                    <select name="znizka" id="znizka">
+                        <option value="0">Brak</option>
+                        <option value="30">Student/Uczeń -30%</option>
+                        <option value="10">Karta dużej rodziny -10%</option>
+                        <option value="15">Karta stałego klienta -15%</option>
+                        <option value="35">Senior -35%</option>
+                    </select><br><br>
+                    <div class="bottom">
+                        <p>Przewidywana cena: <span id="cena"></span></p>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button type="button">Dalej</button></a>
+                    </div>
+                </form>
+        </div>
+    </div>
 </body>
 </html>
